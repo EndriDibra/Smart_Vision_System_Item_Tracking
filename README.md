@@ -4,4 +4,4 @@ More spesifically i make use of computer vision libraries such as OpenCV and pyz
 
 Then, i store them into a .csv dataset where i perform data processing and management like cleaning the data in case that is needed and formating them into a proper tabular form  with Python libraries, for instance Numpy and Pandas, as well as displaying them into a simple UI [User Interface] using Python-Flask and HTML5-CSS3.
 
-Ultimately, i include voice technology for Speech-to-Text and Text-to-Speech purposes by using a Python library named:pyttsx3, to enchance HCI [Human-Computer-Interaction], by allowing an user to ask for a specific item/product about its status or location, and the system to respond accordingly to him/her.
+Ultimately, i include voice technology for Speech-to-Text and Text-to-Speech purposes by using Python libraries named: pyttsx3 and speech_recognition, to enchance HCI [Human-Computer-Interaction], by allowing an user to ask for a specific item/product about its status or location, and the system to respond accordingly to him/her.
