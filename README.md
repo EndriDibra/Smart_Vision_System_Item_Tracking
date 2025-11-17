@@ -1,5 +1,5 @@
 # Smart_Vision_System_Item_Tracking
-This is a 3Day-Challenge Project for my Interview at Lyngsoe-Systems Company. It is about a smart item tracking system, incorporating Computer Vision and Voice Technology.
+This is a 3Day-Challenge Project for an Interview at Company. It is about a smart item tracking system, incorporating Computer Vision and Voice Technology.
 More spesifically i make use of computer vision libraries such as OpenCV and pyzbar, to detect and read QR and Bar codes of items/products.
 
 Then, i store them into a .csv dataset where i perform data processing and management like cleaning the data in case that is needed and formating them into a proper tabular form  with Python libraries, for instance Numpy and Pandas, as well as displaying them into a simple UI [User Interface] using Python-Flask and HTML5-CSS3.
