@@ -218,7 +218,6 @@ def speak(text):
     engine.runAndWait()
 
 
-# Defining function for listening command
 # Defining function for listening command with ambient noise adjustment
 def listenForCommand():
 
