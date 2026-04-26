@@ -66,7 +66,7 @@ python main.py
 
 ---
 
-Once running, select an option from the menu:
+# Once running, select an option from the menu:
 
 1 → Start QR/Barcode Camera Scanner
 2 → Activate Voice Assistant
