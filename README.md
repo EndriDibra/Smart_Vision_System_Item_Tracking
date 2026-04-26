@@ -63,3 +63,11 @@ pip install -r requirements.txt
 
 # 4. Run the application
 python main.py
+
+Once running, select an option from the menu:
+
+1 → Start QR/Barcode Camera Scanner
+2 → Activate Voice Assistant
+3 → Launch Web Dashboard
+4 → Perform OCR Scan from Image
+5 → Exit
