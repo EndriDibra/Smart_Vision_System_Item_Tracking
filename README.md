@@ -105,19 +105,6 @@ D --> H[Voice Response Engine]
 
 ## Installation
 
-### Clone Repository
-
-```bash
-git clone <repository-url>
-cd Smart_Vision_System_Item_Tracking
-```
-
-### Install Python Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
 ### Install Tesseract OCR
 
 #### Windows
@@ -138,7 +125,7 @@ sudo apt install tesseract-ocr
 Run the project:
 
 ```bash
-python main.py
+python smartTracking.py
 ```
 
 You will see:
@@ -223,11 +210,10 @@ Enter image path: image.jpg
 
 ```text
 Smart_Vision_System_Item_Tracking/
-│── main.py
+│── smartTracking.py
 │── Items.csv
 │── templates/
 │   └── dashboard.html
-│── requirements.txt
 │── README.md
 ```
 
@@ -328,9 +314,3 @@ Ensure Tesseract is installed and added to PATH.
 This project was created by **Endri Dibra** for portfolio and technical demonstration purposes.
 
 ---
-
-## Author
-
-**Endri Dibra**
-
-AI Engineer | Computer Vision | Robotics | Intelligent Systems
