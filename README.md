@@ -1,75 +1,336 @@
-# Smart Vision Item Tracking System
-A computer vision and voice-enabled smart item tracking system developed as a **3-day challenge** for a company interview. The system detects QR codes, barcodes, and text using OpenCV and pyzbar, stores item data in CSV, provides a web dashboard, and supports natural voice interaction for querying item status and location.
+# Smart Vision System – Item Tracking
+
+A smart inventory and item tracking system that combines **Computer Vision**, **OCR**, **Barcode/QR Scanning**, **Speech Recognition**, and a **Web Dashboard** for real-time product monitoring.
+
+Developed by **Endri Dibra** as a 3-day technical challenge project for an interview process.
 
 ---
 
 ## Table of Contents
-1. [Overview](#overview)
-2. [Features](#features)
-3. [Prerequisites](#prerequisites)
-4. [Quick Start](#quick-start)
-5. [Project Structure](#project-structure)
-6. [How It Works](#how-it-works)
-7. [Voice Interaction](#voice-interaction)
-8. [Web Dashboard](#web-dashboard)
-9. [Useful Commands](#useful-commands)
-10. [Troubleshooting](#troubleshooting)
+
+1. Overview
+2. Features
+3. Technologies Used
+4. System Architecture
+5. Installation
+6. Quick Start
+7. Usage Modes
+8. Project Structure
+9. How It Works
+10. Web Dashboard
+11. Voice Assistant Commands
+12. Troubleshooting
+13. Future Improvements
+14. License
+
 ---
 
 ## Overview
-This project combines **Computer Vision**, **Data Management**, and **Voice Technology** into an intelligent item tracking system. It scans items in real-time using a camera, extracts information from QR/barcodes and text via OCR, stores everything in a CSV dataset, and allows users to interact with the system through voice commands or a simple web interface.
 
-The system demonstrates practical use of OpenCV for vision tasks, Pandas for data handling, Flask for the UI, and speech libraries to enhance Human-Computer Interaction (HCI).
+This project is a smart item/product tracking solution designed to automate inventory logging and retrieval using modern AI-assisted interfaces.
+
+The system can:
+
+- Detect and scan **QR codes** and **barcodes**
+- Extract printed text from images using **OCR**
+- Store scanned items in a CSV database
+- Provide item lookup via **voice assistant**
+- Display all tracked products in a web dashboard
+- Improve Human-Computer Interaction through voice control
 
 ---
 
 ## Features
-- Real-time QR code and barcode detection with visual feedback
-- OCR text extraction from images using Tesseract
-- Automatic data storage in CSV with timestamp and location
-- Duplicate prevention when scanning the same item
-- Voice assistant for querying item status and location
-- Web-based dashboard for viewing and searching tracked items
-- Multi-threaded support for running scanner, voice, and UI simultaneously
+
+### Computer Vision
+
+- Live camera barcode scanning
+- QR code recognition
+- Real-time item detection overlay
+- OCR text extraction from images
+
+### Data Management
+
+- CSV-based lightweight storage
+- Duplicate item prevention
+- Timestamp logging
+- Searchable records
+
+### Voice Technology
+
+- Speech-to-Text commands
+- Text-to-Speech responses
+- Hands-free inventory lookup
+
+### Web Interface
+
+- Flask-powered dashboard
+- Search items instantly
+- Tabular product history view
 
 ---
 
-## Prerequisites
-### Required
-1. **Python 3.8 or higher**
-2. **Webcam** (for real-time scanning)
-3. **Microphone** (for voice commands)
-4. **Tesseract OCR** installed and added to system PATH
-   - Download from: https://github.com/UB-Mannheim/tesseract/releases
+## Technologies Used
 
-### Python Dependencies
-All required packages are listed in the `requirements.txt` file.
+| Category | Libraries |
+|--------|-----------|
+| Computer Vision | OpenCV, pyzbar |
+| OCR | pytesseract |
+| Data Processing | pandas, numpy |
+| Web UI | Flask, HTML, CSS |
+| Speech Recognition | SpeechRecognition |
+| Text-to-Speech | pyttsx3 |
+
+---
+
+## System Architecture
+
+```mermaid
+graph TD
+
+A[Camera Feed] --> B[Barcode / QR Scanner]
+A --> C[OCR Text Reader]
+
+B --> D[CSV Database]
+C --> D
+
+E[Voice Commands] --> F[Speech Recognition]
+F --> D
+
+D --> G[Flask Dashboard]
+D --> H[Voice Response Engine]
+```
+
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone <repository-url>
+cd Smart_Vision_System_Item_Tracking
+```
+
+### Install Python Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Install Tesseract OCR
+
+#### Windows
+
+Download:
+https://github.com/UB-Mannheim/tesseract/wiki
+
+#### Ubuntu
+
+```bash
+sudo apt install tesseract-ocr
+```
 
 ---
 
 ## Quick Start
+
+Run the project:
+
 ```bash
-# 1. Clone the repository
-git clone <your-repository-url>
-cd Smart_Vision_System_Item_Tracking
-
-# 2. (Recommended) Create and activate virtual environment
-python -m venv venv
-venv\Scripts\activate          # Windows
-# source venv/bin/activate     # Linux / macOS
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Run the application
 python main.py
+```
+
+You will see:
+
+```text
+1. Run QR/Barcode Scanner
+2. Run Voice Assistant
+3. Run Web Dashboard
+4. OCR Scan From Image
+5. Exit
+```
 
 ---
 
-# Once running, select an option from the menu:
+## Usage Modes
 
-1 → Start QR/Barcode Camera Scanner
-2 → Activate Voice Assistant
-3 → Launch Web Dashboard
-4 → Perform OCR Scan from Image
-5 → Exit
+---
+
+### 1. QR / Barcode Scanner
+
+Launch live camera scanning:
+
+```text
+Choose option: 1
+```
+
+Features:
+
+- Detects barcodes instantly
+- Saves unique items automatically
+- Draws green detection boundaries
+
+---
+
+### 2. Voice Assistant
+
+Launch voice search:
+
+```text
+Choose option: 2
+```
+
+Example commands:
+
+- Where is item 12345
+- Find item box12
+- Status of item 998
+- Stop
+
+System responds with latest location and timestamp.
+
+---
+
+### 3. Web Dashboard
+
+Launch browser UI:
+
+```text
+Choose option: 3
+```
+
+Then open:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+### 4. OCR Image Scanner
+
+Extract printed text from image:
+
+```text
+Choose option: 4
+Enter image path: image.jpg
+```
+
+---
+
+## Project Structure
+
+```text
+Smart_Vision_System_Item_Tracking/
+│── main.py
+│── Items.csv
+│── templates/
+│   └── dashboard.html
+│── requirements.txt
+│── README.md
+```
+
+---
+
+## How It Works
+
+### Barcode / QR Flow
+
+```text
+Camera → pyzbar Decoder → Item ID → CSV Storage
+```
+
+### OCR Flow
+
+```text
+Image → OpenCV → Tesseract OCR → CSV Storage
+```
+
+### Voice Flow
+
+```text
+Microphone → Speech Recognition → Search CSV → TTS Response
+```
+
+---
+
+## Web Dashboard
+
+The dashboard provides:
+
+- Search bar
+- Product records
+- Timestamp history
+- Latest locations
+
+Useful for warehouse, office, or store inventory.
+
+---
+
+## Voice Assistant Commands
+
+| Command Example | Action |
+|----------------|--------|
+| Where is item 1001 | Search item |
+| Find box23 | Search item |
+| Stop | Exit assistant |
+
+---
+
+## Troubleshooting
+
+### Camera Not Opening
+
+Try changing:
+
+```python
+cv2.VideoCapture(0)
+```
+
+to:
+
+```python
+cv2.VideoCapture(1)
+```
+
+---
+
+### Microphone Not Detected
+
+Install PyAudio:
+
+```bash
+pip install pyaudio
+```
+
+---
+
+### OCR Not Working
+
+Ensure Tesseract is installed and added to PATH.
+
+---
+
+## Future Improvements
+
+- SQL database integration
+- Cloud inventory sync
+- Face authentication
+- Multi-camera support
+- Mobile app dashboard
+- AI anomaly detection
+
+---
+
+## License
+
+This project was created by **Endri Dibra** for portfolio and technical demonstration purposes.
+
+---
+
+## Author
+
+**Endri Dibra**
+
+AI Engineer | Computer Vision | Robotics | Intelligent Systems
